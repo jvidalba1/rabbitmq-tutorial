@@ -7,8 +7,8 @@ conn.start
 # Channel where data resides
 ch = conn.create_channel
 
-# Queue to publish messages
-q = ch.queue("hello")
+# Queue to publish messages, with durable true messages doesnot lose
+q = ch.queue("task_queue", :durable => true)
 
 msg = ARGV.empty? ? "Hello World!" : ARGV.join(" ")
 
